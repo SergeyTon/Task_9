@@ -1,0 +1,25 @@
+h3 {
+  font-size: 30px;
+  color: blue;
+  margin: 20px;
+  text-align: center;
+}
+.wrap {
+    width: 260px;
+    height: 600px;
+    margin: 0 auto;
+    padding: 40px;
+    box-sizing: border-box;
+    border: 2px solid black;
+    background: white;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    position: relative;
+  }
+  
+  
+
+span {
+    font-weight: bold;
+    color: blue;
+}
