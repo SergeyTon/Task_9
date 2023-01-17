@@ -56,23 +56,8 @@ const personGenerator = {
             "id_9": "Ольга",
             "id_10": "Ангелина"
         }
-    }`,
-
+        
     
-    middlenameJson: `{
-        "count" : 10,
-        "list" : {
-            "id_1": "Иванов",
-            "id_2": "Александров",
-            "id_3": "Петров",
-            "id_4": "Сергеев",
-            "id_5": "Андреев",
-            "id_6": "Владимиров",
-            "id_7": "Константинов",
-            "id_8": "Леонидов",
-            "id_9": "Павлов",
-            "id_10": "Витальев"  
-        }
     }`,
 
     
@@ -183,9 +168,19 @@ const personGenerator = {
 
     // генерация отчества
     randomMiddleName: function () {
-        let middlename = this.randomValue(this.middlenameJson);
-        this.genderParameter == 'Мужчина' ? middlename += 'ич' : middlename += 'на';
+        let middlename = this.randomValue(this.firstNameMaleJson);
+        let middlenameLast = middlename.length-1;                                        // определяем последнюю букву имени
+        if (middlename[middlenameLast] !== 'й' && middlename[middlenameLast] !== 'а') {  // отбираем имена с окончанием на "й" и "а"
+        this.genderParameter == 'Мужчина' ? middlename += 'ович' : middlename += 'овна';
         return middlename;
+        } else {
+            middlename = middlename.substring(0, middlename.length - 1);
+            this.genderParameter == 'Мужчина' ? middlename += 'евич' : middlename += 'евна';
+            return middlename;
+
+        }
+        
+    
     },
 
     // генерация года рождения
